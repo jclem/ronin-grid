@@ -1,0 +1,128 @@
+/* Ronin Grid
+ * The main code behind Ronin's grid is here.
+ */
+
+$gutter-width:    ($container-width - $num-columns * $column-width) / $num_columns;   /* Unit-less width of the horizontal gutter between Ronin column elements. */
+$container-px-width:  $container-width * 1px;                                         /* Width of the Ronin container in pixels. */
+$column-px-width:     $column-width * 1px;                                            /* Width of a Ronin column in pixels. */
+$column-pct-width:    ($column-width / $container-width) * 100%;                      /* Width of a Ronin column in percentage. */
+$gutter-px-width:     $gutter-width * 1px;                                            /* Width of a Ronin gutter in pixels. */
+$gutter-pct-width:    ($gutter-width / $container-width) * 100%;                      /* Width of a Ronin gutter in percentage. */
+
+/* container mixin
+ * A container element holds the entire grid layout.
+ *
+ * Usage:
+ * .page-container { @include container; }
+ */
+@mixin container {
+  width: 90%;
+  max-width: $container-px-width + $gutter-px-width;
+  margin: 0 auto;
+
+  /* The next two rules keep the container centered
+   * by shifting it to the left by half the width of a
+   * gutter. Doing this allows us to avoid having a "last"
+   * mixin that would have to be applied to the last element
+   * in every row in the layout.
+   */
+  position: relative;
+  left: $gutter-pct-width / 2;
+
+  /* Ronin uses inline-block for its column elements. Since
+   * inline-blocks are inline elements, they must have word and
+   * letter-spacing adjusted so that newlines in HTML between
+   * column elements are ignored. These values are reset in the cols
+   * mixin.
+   */
+  letter-spacing: -0.31em;
+  *letter-spacing: normal; /* IE < 8 */
+  word-spacing: -0.43em; /* IE < 8 */
+}
+
+@mixin cols($cols:$num-columns) {
+  display: inline-block;
+  zoom: 1; *display: inline; /* IE < 8 */
+  width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+  margin-right: $gutter-pct-width;
+  margin-bottom: $column-bottom-margin;
+  vertical-align: top;
+
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+
+  /* Ronin's default breakpoints and column responses. */
+  @if $auto-respond == true {
+    @if $cols >= 8 {
+      @media screen and (max-width: 1024px) {
+        $cols: 12;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+    }
+
+    @if $cols >= 4 and $cols < 8 {
+      @media screen and (max-width: 1024px) {
+        $cols: 6;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+
+      @media screen and (max-width: 768px) {
+        $cols: 12;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+    }
+
+    @if $cols >= 3 and $cols < 4 {
+      @media screen and (max-width: 1024px) {
+        $cols: 4;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+
+      @media screen and (max-width: 768px) {
+        $cols: 6;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+
+      @media screen and (max-width: 480px) {
+        $cols: 12;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+    }
+
+    @if $cols <= 2 {
+      @media screen and (max-width: 1024px) {
+        $cols: 3;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+
+      @media screen and (max-width: 768px) {
+        $cols: 4;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+
+      @media screen and (max-width: 480px) {
+        $cols: 6;
+        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+      width: 100% - $gutter-pct-width;
+    }
+  }
+}
+
+/* Custom column responses for Ronin's default breakpoints. */
+@if $auto-respond == true {
+  @mixin respond-1024($cols) { @media screen and (max-width: 1024px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
+  @mixin respond-768($cols) { @media screen and (max-width: 768px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
+  @mixin respond-480($cols) { @media screen and (max-width: 480px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
+}
+
+/* Function for simply getting the width (in percentage) of a number
+ * of columns + gutter right-margin.
+ */
+@function cols-width($cols) {
+  @return $column-pct-width * $cols + $gutter-pct-width * ($cols - 1) + $gutter-pct-width;
+}

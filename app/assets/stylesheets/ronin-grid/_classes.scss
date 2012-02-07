@@ -1,0 +1,26 @@
+/* Ronin Classes
+ * Use these CSS classes if you do not want to use
+ * Ronin's SASS mixins.
+ *
+ * Advantage: Smaller CSS files.
+ * Disadvantage: Non-semantic markup.
+ */
+
+/* .r-container
+ * Ronin's main container for holding the entire grid.
+ *
+ * Usage:
+ * <div class='r-container'>
+ */
+.r-container { @include container; }
+
+/* .r-cols-n
+ * Specify the number of columns an element should take
+ * occupy.
+ *
+ * Usage:
+ * <div class='r-cols-6'>
+ */
+@for $cols from 1 through $num-columns {
+  .r-cols-#{$cols} { @include cols($cols); }
+}
