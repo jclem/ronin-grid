@@ -11,7 +11,15 @@ module RoninGrid
       when 'install'; install
       when 'update'; update
       when 'uninstall'; uninstall
+      when '-v'; version
+      when '--version'; version
+      else
+        puts 'Usage: ronin-grid {install, update, uninstall, -v|--version}'
       end
+    end
+
+    def version
+      puts RoninGrid::VERSION
     end
 
     def update
