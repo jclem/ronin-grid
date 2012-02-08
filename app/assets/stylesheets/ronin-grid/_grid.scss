@@ -51,73 +51,12 @@ $gutter-pct-width:    ($gutter-width / $container-width) * 100%;                
   /* Reset what is done in the container mixin for inline-block elements. */
   letter-spacing: normal;
   word-spacing: normal;
-
-  /* Ronin's default breakpoints and column responses. */
-  @if $auto-respond == true {
-    @if $cols >= 8 {
-      @media screen and (max-width: 1024px) {
-        $cols: 12;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-    }
-
-    @if $cols >= 4 and $cols < 8 {
-      @media screen and (max-width: 1024px) {
-        $cols: 6;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-
-      @media screen and (max-width: 768px) {
-        $cols: 12;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-    }
-
-    @if $cols >= 3 and $cols < 4 {
-      @media screen and (max-width: 1024px) {
-        $cols: 4;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-
-      @media screen and (max-width: 768px) {
-        $cols: 6;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-
-      @media screen and (max-width: 480px) {
-        $cols: 12;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-    }
-
-    @if $cols <= 2 {
-      @media screen and (max-width: 1024px) {
-        $cols: 3;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-
-      @media screen and (max-width: 768px) {
-        $cols: 4;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-
-      @media screen and (max-width: 480px) {
-        $cols: 6;
-        width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
-      }
-    }
-
-    @media screen and (max-width: 479px) {
-      width: 100% - $gutter-pct-width;
-    }
-  }
 }
 
-/* Custom column responses for Ronin's default breakpoints. */
-@if $auto-respond == true {
-  @mixin respond-1024($cols) { @media screen and (max-width: 1024px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
-  @mixin respond-768($cols) { @media screen and (max-width: 768px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
-  @mixin respond-480($cols) { @media screen and (max-width: 480px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
+/* Quick way to make an element re-size itself at the specified
+ * viewport with. */
+@mixin respond-to($query-max-width, $col-count) {
+  @media screen and (max-width: $query-max-width) { @include cols($width-in-cols); }
 }
 
 /* Function for simply getting the width (in percentage) of a number
