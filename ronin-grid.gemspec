@@ -20,5 +20,5 @@ The objective of Ronin is to provide a framework for developing flexible, respon
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency('sass', '= 3.2.alpha.0')
+  s.add_dependency('sass', '= 3.2.0.alpha.64')
 end
