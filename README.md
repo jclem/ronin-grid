@@ -117,3 +117,4 @@ Released under a [modified MIT license][license]
 
 [twitter]: http://twitter.com/_clem
 [license]: http://github.com/jclem/ronin-grid/tree/master/LICENSE.md
+[jonathan_clem]: http://jclem.net
