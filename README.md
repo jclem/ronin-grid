@@ -36,7 +36,7 @@ Import Ronin into your SASS stylesheets:
 Customize:
 
 ```bash
-vim app/assets/stylesheets/ronin-grid/_setup.css.scss
+vim app/assets/stylesheets/ronin-grid/_setup.scss
 ```
 
 ### Non-Rails
