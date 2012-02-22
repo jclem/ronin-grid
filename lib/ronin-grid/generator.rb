@@ -9,6 +9,7 @@ module RoninGrid
     def run
       case @command
       when 'install'; install
+      when 'install-bare'; install(true)
       when 'update'; update
       when 'uninstall'; uninstall
       when '-v'; version
@@ -32,10 +33,11 @@ module RoninGrid
       end
     end
 
-    def install
+    def install(bare = false)
       if ronin_installed?
         puts 'Ronin already installed, halting update.'
       else
+        @bare = bare ? true : false
         install_ronin
         puts 'Ronin installed into ronin-grid/'
       end
@@ -53,20 +55,20 @@ module RoninGrid
     private
 
     def ronin_installed?
-      Dir.exist?('ronin_grid')
+      Dir.exist?('ronin-grid')
     end
 
     def install_ronin
-      make_lib_directory
+      make_lib_directory unless @bare
       copy_sass_files
     end
 
     def remove_ronin_directory
-      FileUtils.rm_rf('ronin_grid')
+      FileUtils.rm_rf('ronin-grid')
     end
 
     def copy_sass_files
-      FileUtils.cp_r(all_sass_files, 'ronin_grid/')
+      FileUtils.cp_r(all_sass_files, install_dir)
     end
 
     def all_sass_files
@@ -74,7 +76,15 @@ module RoninGrid
     end
 
     def make_lib_directory
-      FileUtils.mkdir_p('ronin_grid/lib/ronin_grid')
+      FileUtils.mkdir_p(lib_directory)
+    end
+
+    def lib_directory
+      'ronin-grid/lib/ronin-grid'
+    end
+
+    def install_dir
+      @bare ? '.' : lib_directory
     end
 
     def sass_dir

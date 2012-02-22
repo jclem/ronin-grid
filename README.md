@@ -6,12 +6,25 @@ Ronin is a framework for creating responsive web designs with SASS.
 
 ## Installation
 
-### Rails >= 3.1
+### Rails
 
 In your `Gemfile`:
 
 ```ruby
 gem 'ronin-grid' 
+```
+
+Run the installer:
+
+```bash
+rake ronin-grid:install
+```
+
+We do not want Ronin's SASS files to be compiled, so remove the following line
+from `app/assets/stylesheets/application.css`:
+
+```css
+*= require_tree .
 ```
 
 Import Ronin into your SASS stylesheets:
@@ -20,20 +33,28 @@ Import Ronin into your SASS stylesheets:
 @import 'ronin-grid';
 ```
 
-### Rails < 3.0.x
+Customize:
 
-Install with Rake:
-
-```
-$ rake ronin-grid:install
+```bash
+vim app/assets/stylesheets/ronin-grid/_setup.css.scss
 ```
 
-Import Ronin into your SASS stylesheets:
+### Non-Rails
 
-```scss
-@import 'ronin-grid'
+Use the binary:
+
+```bash
+ronin-grid install
+# Creates ronin-grid/lib/ronin-grid/...
 ```
 
+or:
+
+```bash
+ronin-grid install-bare
+# Creates _ronin-grid.scss
+# Creates ronin-grid/...
+```
 ---
 
 ## Usage

@@ -7,12 +7,13 @@ module RoninGrid
       require 'ronin-grid/engine'
     end
 
-    module Rails
-      class Railtie < ::Rails::Railtie
-        rake_tasks do
-          load 'tasks/install.rake'
-        end
-      end
-    end
+    # Pointless, as _setup.scss cannot be overridden.
+    # module Rails
+      # class Railtie < ::Rails::Railtie
+        # rake_tasks do
+          # load 'tasks/install.rake'
+        # end
+      # end
+    # end
   end
 end
