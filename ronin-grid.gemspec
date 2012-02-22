@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "ronin-grid"
   s.version     = RoninGrid::VERSION
   s.authors     = ["Jonathan Clem"]
-  s.email       = ["jclem@jclem.net"]
+  s.email       = ["j@jclem.net"]
   s.homepage    = "https://github.com/jclem/ronin-grid"
   s.summary     = %q{Slice and dice content into a flexible, responsive grid with media queries.}
   s.description = <<-DESCRIPTION
