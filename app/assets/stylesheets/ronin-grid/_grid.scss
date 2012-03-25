@@ -107,7 +107,7 @@ $gutter-pct-width:    ($gutter-width / $container-width) * 100%;                
       }
     }
 
-    @media screen and (max-width: 479px) {
+    @media screen and (max-width: 320px) {
       width: 100% - $gutter-pct-width;
     }
   }
