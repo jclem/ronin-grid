@@ -101,7 +101,8 @@ Respond with media queries with ease, writing the queries explicitly or using Ro
 
 #more-content {
   @include cols(6);
-  @include respond-480(12);
+  @include respond-to(840px, 9);
+  @include respond-to(480px, 12);
 }
 ```
 ---

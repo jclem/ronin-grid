@@ -119,13 +119,6 @@ $gutter-pct-width:    ($gutter-width / $container-width) * 100%;                
   }
 }
 
-/* Custom column responses for Ronin's default breakpoints. */
-@if $auto-respond == true {
-  @mixin respond-1024($cols) { @media screen and (max-width: 1024px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
-  @mixin respond-768($cols) { @media screen and (max-width: 768px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
-  @mixin respond-480($cols) { @media screen and (max-width: 480px) { width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1); } }
-}
-
 /* Function for simply getting the width (in percentage) of a number
  * of columns + gutter right-margin.
  */
