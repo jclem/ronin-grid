@@ -40,6 +40,12 @@ $gutter-pct-width:    ($gutter-width / $container-width) * 100%;                
   word-spacing: -0.43em; /* IE < 8 */
 }
 
+@mixin respond-to($width, $cols) {
+  @media screen and (max-width: $width) {
+    width: $column-pct-width * $cols + $gutter-pct-width * ($cols - 1);
+  }
+}
+
 @mixin cols($cols:$num-columns) {
   display: inline-block;
   zoom: 1; *display: inline; /* IE < 8 */

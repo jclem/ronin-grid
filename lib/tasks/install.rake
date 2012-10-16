@@ -1,4 +1,3 @@
-# Rails < 3.1
 namespace :'ronin-grid' do
   desc "Install the Ronin files into the Rails assets directory"
   task :install, [:sass_path] do |t, args|
