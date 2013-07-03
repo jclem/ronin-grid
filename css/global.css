@@ -1,0 +1,754 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+/* Ronin Setup
+ * These are the main configurable options for Ronin,
+ * but anything else can be changed by editing the Ronin
+ * source itself.
+ */
+/* The following three values should all be unit-less. */
+/* The width of an element using the container mixin or the .r-container class. */
+/* The number of colums in the Ronin grid. */
+/* The width of an individual column (the gutter width is based off of this). */
+/* The margin applied to the bottom of any column element. */
+/* Include Ronin's default 1024px, 768px, 480px, and 479px breakpoints. */
+/* Ronin Grid
+ * The main code behind Ronin's grid is here.
+ */
+/* Unit-less width of the horizontal gutter between Ronin column elements. */
+/* Width of the Ronin container in pixels. */
+/* Width of a Ronin column in pixels. */
+/* Width of a Ronin column in percentage. */
+/* Width of a Ronin gutter in pixels. */
+/* Width of a Ronin gutter in percentage. */
+/* container mixin
+ * A container element holds the entire grid layout.
+ *
+ * Usage:
+ * .page-container { @include container; }
+ */
+/* Function for simply getting the width (in percentage) of a number
+ * of columns + gutter right-margin.
+ */
+/* Ronin Classes
+ * Use these CSS classes if you do not want to use
+ * Ronin's SASS mixins.
+ *
+ * Advantage: Smaller CSS files.
+ * Disadvantage: Non-semantic markup.
+ */
+/* .r-container
+ * Ronin's main container for holding the entire grid.
+ *
+ * Usage:
+ * <div class='r-container'>
+ */
+.r-container {
+  width: 90%;
+  max-width: 1173px;
+  margin: 0 auto;
+  /* The next two rules keep the container centered
+   * by shifting it to the left by half the width of a
+   * gutter. Doing this allows us to avoid having a "last"
+   * mixin that would have to be applied to the last element
+   * in every row in the layout.
+   */
+  position: relative;
+  left: 1.44737%;
+  /* Ronin uses inline-block for its column elements. Since
+   * inline-blocks are inline elements, they must have word and
+   * letter-spacing adjusted so that newlines in HTML between
+   * column elements are ignored. These values are reset in the cols
+   * mixin.
+   */
+  letter-spacing: -0.31em;
+  *letter-spacing: normal;
+  /* IE < 8 */
+  word-spacing: -0.43em;
+  /* IE < 8 */ }
+
+/* .r-cols-n
+ * Specify the number of columns an element should take
+ * occupy.
+ *
+ * Usage:
+ * <div class='r-cols-6'>
+ */
+.r-cols-1 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 5.4386%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-1 {
+      width: 22.10526%; } }
+  @media screen and (max-width: 768px) {
+    .r-cols-1 {
+      width: 30.4386%; } }
+  @media screen and (max-width: 480px) {
+    .r-cols-1 {
+      width: 47.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-1 {
+      width: 97.10526%; } }
+
+.r-cols-2 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 13.77193%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-2 {
+      width: 22.10526%; } }
+  @media screen and (max-width: 768px) {
+    .r-cols-2 {
+      width: 30.4386%; } }
+  @media screen and (max-width: 480px) {
+    .r-cols-2 {
+      width: 47.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-2 {
+      width: 97.10526%; } }
+
+.r-cols-3 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 22.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-3 {
+      width: 30.4386%; } }
+  @media screen and (max-width: 768px) {
+    .r-cols-3 {
+      width: 47.10526%; } }
+  @media screen and (max-width: 480px) {
+    .r-cols-3 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-3 {
+      width: 97.10526%; } }
+
+.r-cols-4 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 30.4386%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-4 {
+      width: 47.10526%; } }
+  @media screen and (max-width: 768px) {
+    .r-cols-4 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-4 {
+      width: 97.10526%; } }
+
+.r-cols-5 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 38.77193%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-5 {
+      width: 47.10526%; } }
+  @media screen and (max-width: 768px) {
+    .r-cols-5 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-5 {
+      width: 97.10526%; } }
+
+.r-cols-6 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 47.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-6 {
+      width: 47.10526%; } }
+  @media screen and (max-width: 768px) {
+    .r-cols-6 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-6 {
+      width: 97.10526%; } }
+
+.r-cols-7 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 55.4386%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-7 {
+      width: 47.10526%; } }
+  @media screen and (max-width: 768px) {
+    .r-cols-7 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-7 {
+      width: 97.10526%; } }
+
+.r-cols-8 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 63.77193%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-8 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-8 {
+      width: 97.10526%; } }
+
+.r-cols-9 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 72.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-9 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-9 {
+      width: 97.10526%; } }
+
+.r-cols-10 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 80.4386%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-10 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-10 {
+      width: 97.10526%; } }
+
+.r-cols-11 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 88.77193%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-11 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-11 {
+      width: 97.10526%; } }
+
+.r-cols-12 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 97.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .r-cols-12 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .r-cols-12 {
+      width: 97.10526%; } }
+
+body {
+  padding-top: 2.75em;
+  padding-bottom: 2.75em;
+  background: #f8f8f8;
+  color: #333;
+  font: 100%/1.4285 "Open Sans"; }
+
+h1 {
+  font-size: 400%; }
+
+h2 {
+  font-size: 300%; }
+
+h3 {
+  font-size: 200%; }
+
+p, ol {
+  margin-bottom: 1em; }
+  p:last-child, ol:last-child {
+    margin-bottom: 0; }
+
+a {
+  color: #009;
+  color: #900; }
+  a:hover {
+    text-decoration: none; }
+
+ol {
+  list-style: decimal; }
+
+::selection {
+  background: #900;
+  color: white; }
+
+.page-container {
+  width: 90%;
+  max-width: 1173px;
+  margin: 0 auto;
+  /* The next two rules keep the container centered
+   * by shifting it to the left by half the width of a
+   * gutter. Doing this allows us to avoid having a "last"
+   * mixin that would have to be applied to the last element
+   * in every row in the layout.
+   */
+  position: relative;
+  left: 1.44737%;
+  /* Ronin uses inline-block for its column elements. Since
+   * inline-blocks are inline elements, they must have word and
+   * letter-spacing adjusted so that newlines in HTML between
+   * column elements are ignored. These values are reset in the cols
+   * mixin.
+   */
+  letter-spacing: -0.31em;
+  *letter-spacing: normal;
+  /* IE < 8 */
+  word-spacing: -0.43em;
+  /* IE < 8 */ }
+
+header {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 97.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */
+  margin-bottom: 2.75em; }
+  @media screen and (max-width: 1024px) {
+    header {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    header {
+      width: 97.10526%; } }
+
+h1, h2, h3, h4, h5, h6, .subtitle {
+  min-height: 1.375em;
+  line-height: 1; }
+
+h1 {
+  color: #900;
+  font-family: Asul;
+  font-weight: 700;
+  letter-spacing: -2px; }
+
+h2 {
+  margin-bottom: .6875em;
+  font-family: Asul;
+  font-size: 200%; }
+
+h3 {
+  font-family: Asul;
+  font-size: 150%; }
+
+code {
+  padding: 2px 6px;
+  background: #fa9;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  font-family: Inconsolata, Monaco, Menlo, monospace; }
+
+td, th {
+  padding: 0 0.6875em;
+  line-height: 2.75; }
+  @media screen and (max-width: 320px) {
+    td, th {
+      padding: 0 2px;
+      font-size: 75%; } }
+
+table {
+  width: 100%;
+  margin-bottom: 1.375em;
+  border: 1px solid #ccc; }
+
+th {
+  background: #ccc; }
+
+tr:nth-child(even) {
+  background: #dfdfdf; }
+
+figcaption {
+  color: #666;
+  font-style: italic; }
+
+img {
+  max-width: 100%;
+  margin-bottom: 1.375em; }
+
+.subtitle {
+  margin-bottom: .6875em;
+  color: #666;
+  font-family: Asul;
+  font-size: 200%;
+  font-style: italic; }
+
+.grid-demo div {
+  padding: 3.45em 0;
+  background: #ddd; }
+.grid-demo p {
+  color: #666;
+  font-size: 2em;
+  font-weight: 800;
+  text-align: center; }
+.grid-demo .cols-nine {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 72.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .grid-demo .cols-nine {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .grid-demo .cols-nine {
+      width: 97.10526%; } }
+.grid-demo .cols-three {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 22.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .grid-demo .cols-three {
+      width: 30.4386%; } }
+  @media screen and (max-width: 768px) {
+    .grid-demo .cols-three {
+      width: 47.10526%; } }
+  @media screen and (max-width: 480px) {
+    .grid-demo .cols-three {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .grid-demo .cols-three {
+      width: 97.10526%; } }
+.grid-demo .cols-four {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 30.4386%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .grid-demo .cols-four {
+      width: 47.10526%; } }
+  @media screen and (max-width: 768px) {
+    .grid-demo .cols-four {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .grid-demo .cols-four {
+      width: 97.10526%; } }
+.grid-demo .cols-two {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 13.77193%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .grid-demo .cols-two {
+      width: 22.10526%; } }
+  @media screen and (max-width: 768px) {
+    .grid-demo .cols-two {
+      width: 30.4386%; } }
+  @media screen and (max-width: 480px) {
+    .grid-demo .cols-two {
+      width: 47.10526%; } }
+  @media screen and (max-width: 320px) {
+    .grid-demo .cols-two {
+      width: 97.10526%; } }
+
+#the-grid,
+#usage,
+#auto-response,
+#why-ronin,
+#questions {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 47.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    #the-grid,
+    #usage,
+    #auto-response,
+    #why-ronin,
+    #questions {
+      width: 47.10526%; } }
+  @media screen and (max-width: 768px) {
+    #the-grid,
+    #usage,
+    #auto-response,
+    #why-ronin,
+    #questions {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    #the-grid,
+    #usage,
+    #auto-response,
+    #why-ronin,
+    #questions {
+      width: 97.10526%; } }
+
+#usage h2 {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 97.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */
+  margin-bottom: 0.6875em; }
+  @media screen and (max-width: 1024px) {
+    #usage h2 {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    #usage h2 {
+      width: 97.10526%; } }
+
+.usage-step {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 30.4386%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    .usage-step {
+      width: 47.10526%; } }
+  @media screen and (max-width: 768px) {
+    .usage-step {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    .usage-step {
+      width: 97.10526%; } }
+
+#breakpoints {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 97.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    #breakpoints {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    #breakpoints {
+      width: 97.10526%; } }
+
+footer {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8 */
+  width: 97.10526%;
+  margin-right: 2.89474%;
+  margin-bottom: 2.75em;
+  vertical-align: top;
+  /* Reset what is done in the container mixin for inline-block elements. */
+  letter-spacing: normal;
+  word-spacing: normal;
+  /* Ronin's default breakpoints and column responses. */ }
+  @media screen and (max-width: 1024px) {
+    footer {
+      width: 97.10526%; } }
+  @media screen and (max-width: 320px) {
+    footer {
+      width: 97.10526%; } }

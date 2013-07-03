@@ -1,0 +1,189 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Ronin</title>
+  <meta name='viewport' content='width=device-width; initial-scale=1.0; maximum-scale=1.0;'>
+
+  <!-- HTML5 shim -->
+  <!--[if lt IE 9]>
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- CSS -->
+  <link rel='stylesheet' href='css/global.css'>
+
+  <!-- Google Web Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Asul|Open+Sans|Inconsolata' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class='page-container'>
+    <header>
+      <h1>Ronin</h1>
+      <p class='subtitle'>A fluid SASS starter kit</p>
+      <p>Ronin is a fluid, auto-responsive grid framework that helps you slice and dice your content with media queries.</p>
+    </header>
+
+    <div id='the-grid'>
+      <h2>The Grid</h2>
+
+      <p>Ronin's grid is based on my previous work on <a href='http://jclem.github.com/flexgrid'>Flexgrid</a>, but makes a few key modifications to it.</p>
+      <p>First, while the Flexgrid is based off of floats, the Ronin grid uses <code>inline-block</code> to control the flow of its column elements. This eliminates the need to group content into rows.</p>
+      <p>Second, while Flexgrid is built to adapt to any base container width and any number of columns, Ronin assumes an 1140px container with 12 columns and breakpoints at 1024px, 768px, 480px, and 479px. All of these can be changed, but require a little bit of work to do so.</p>
+    </div><!-- the-grid -->
+
+    <div id='auto-response'>
+      <h2>Auto-response</h2>
+
+      <p>Ronin is (optionally) auto-responsive, meaning that as the browser viewport scales down, the number of columns taken up by an element scales up. If an element takes up 4 columns above 1024px, it takes up 6 columns below 1024px.</p>
+      <p>This means that Ronin includes a set base container width of 1140px and breakpoints at 1024px, 768px, 480px, and 479px (the last one delineating between iPhone in landscape and portrait orientations).</p>
+    </div><!-- auto-response -->
+
+    <div id='usage'>
+      <h2>Usage</h2>
+      <p>In brief:</p>
+
+      <ol>
+        <li>Add <code>gem 'ronin-grid'</code> to your Gemfile (Rails >= 3.1)</code></li>
+        <li>Run the installer: <code>rake ronin-grid:install</code></li>
+        <li>Import Ronin into your stylesheets: <code>@import 'ronin-grid';</code>
+      </ol>
+
+      <p>Browse the <a href='http://github.com/jclem/ronin-grid'>source on Github</a> and read the README.</p>
+      <p><a href='https://github.com/jclem/ronin-grid/zipball/master'>Download as zip</a>.</p>
+    </div><!-- usage -->
+
+    <div id='breakpoints'>
+      <h2>Default Breakpoints</h2>
+
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th>&gt; 1024px</th>
+              <th>1024px</th>
+              <th>768px</th>
+              <th>480px</th>
+              <th>320px</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>8-12</td>
+              <td>12</td>
+              <td>12</td>
+              <td>12</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>4-7</td>
+              <td>6</td>
+              <td>12</td>
+              <td>12</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>4</td>
+              <td>6</td>
+              <td>12</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>1-2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>6</td>
+              <td>12</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <figcaption>A representation of the automatic media query responses built into Ronin. The integers represent number of columns.</figcaption>
+      </figure>
+    </div>
+
+    <section class='grid-demo'>
+      <div class='cols-nine'>
+        <p>9-col</p>
+      </div>
+
+      <div class='cols-three'>
+        <p>3-col</p>
+      </div>
+
+      <div class='cols-three'>
+        <p>3-col</p>
+      </div>
+
+      <div class='cols-three'>
+        <p>3-col</p>
+      </div>
+
+      <div class='cols-three'>
+        <p>3-col</p>
+      </div>
+
+      <div class='cols-three'>
+        <p>3-col</p>
+      </div>
+
+      <div class='cols-four'>
+        <p>4-col</p>
+      </div>
+
+      <div class='cols-four'>
+        <p>4-col</p>
+      </div>
+
+      <div class='cols-four'>
+        <p>4-col</p>
+      </div>
+
+      <div class='cols-two'>
+        <p>2-col</p>
+      </div>
+
+      <div class='cols-two'>
+        <p>2-col</p>
+      </div>
+
+      <div class='cols-two'>
+        <p>2-col</p>
+      </div>
+
+      <div class='cols-two'>
+        <p>2-col</p>
+      </div>
+
+      <div class='cols-two'>
+        <p>2-col</p>
+      </div>
+
+      <div class='cols-two'>
+        <p>2-col</p>
+      </div>
+
+    </section><!-- grid-demo -->
+
+    <div id='why-ronin'>
+      <h2>Why &ldquo;Ronin&rdquo;?</h2>
+
+      <p>I was watching the excellent film <a href='http://www.imdb.com/title/tt0122690/'>Ronin</a> as I began working on Ronin. Thematically, it's not particularly appropriate, but it was the only thing I could think of at the time.</p>
+    </div>
+
+    <div id='questions'>
+      <h2>Questions</h2>
+
+      <p>Bug me on Twitter (<a href='http://twitter.com/_clem'>@_clem</a>) if you have any questions, comments, or suggestions. Or, feel free to fork as you please on Github.</p>
+    </div>
+
+    <footer>
+      <p>Copyright &copy; 2012, <a href='http://jclem.net'>Jonathan Clem</a>. Ronin is released under a modified <a href='http://github.com/jclem/ronin-grid/tree/master/MIT-LICENSE.md'>MIT license</a>.</p>
+    </footer>
+  </div><!-- page-container -->
+
+</body>
+</html>

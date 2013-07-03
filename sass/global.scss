@@ -1,0 +1,144 @@
+@import 'compass/reset';
+@import 'compass/css3';
+@import 'ronin-grid';
+
+body {
+  padding-top: 2.75em;
+  padding-bottom: 2.75em;
+  background: #f8f8f8;
+  color: #333;
+  font: 100%/1.4285 'Open Sans';
+}
+
+h1 { font-size: 400%; }
+h2 { font-size: 300%; }
+h3 { font-size: 200%; }
+
+p, ol {
+  margin-bottom: 1em;
+  &:last-child { margin-bottom: 0; }
+}
+
+a { 
+  color: #009;
+  color: #900;
+  &:hover { text-decoration: none; }
+}
+
+ol {
+  list-style: decimal;
+}
+
+::selection {
+  background: #900;
+  color: white;
+}
+
+.page-container { @include container; }
+
+header { 
+  @include cols(12);
+  margin-bottom: 2.75em;
+}
+
+h1, h2, h3, h4, h5, h6, .subtitle {
+  min-height: 1.375em;
+  line-height: 1;
+}
+
+h1 {
+  color: #900;
+  font-family: Asul;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+h2 {
+  margin-bottom: .6875em;
+  font-family: Asul;
+  font-size: 200%;
+}
+
+h3 {
+  font-family: Asul;
+  font-size: 150%;
+}
+
+code {
+  padding: 2px 6px;
+  background: #fa9;
+  @include border-radius(2px);
+  font-family: Inconsolata, Monaco, Menlo, monospace;
+}
+
+td, th {
+  padding: 0 0.6875em;
+  line-height: 2.75;
+
+  @media screen and (max-width: 320px) {
+    padding: 0 2px;
+    font-size: 75%;
+  }
+}
+
+table { width: 100%; margin-bottom: 1.375em; border: 1px solid #ccc; }
+
+th { background: #ccc; }
+
+tr:nth-child(even) { background: #dfdfdf; }
+
+figcaption {
+  color: #666;
+  font-style: italic;
+}
+
+img { 
+  max-width: 100%;
+  margin-bottom: 1.375em;
+}
+
+.subtitle {
+  margin-bottom: .6875em;
+  color: #666;
+  font-family: Asul;
+  font-size: 200%;
+  font-style: italic;
+}
+
+.grid-demo {
+  div { 
+    padding: 3.45em 0;
+    background: #ddd;
+  }
+
+  p {
+    color: #666;
+    font-size: 2em;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .cols-nine { @include cols(9); }
+  .cols-three { @include cols(3); }
+  .cols-four { @include cols(4); }
+  .cols-two { @include cols(2); }
+}
+
+#the-grid,
+#usage,
+#auto-response,
+#why-ronin,
+#questions {
+  @include cols(6);
+}
+
+#usage h2 { 
+  @include cols;
+  margin-bottom: 0.6875em;
+}
+
+.usage-step { @include cols(4); }
+
+#breakpoints { @include cols(12); }
+
+footer { @include cols(12); }

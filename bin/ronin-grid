@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'ronin-grid'
-
-RoninGrid::Generator.new(ARGV).run
